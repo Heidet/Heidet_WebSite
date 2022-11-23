@@ -24,7 +24,7 @@ ReactDOM.render(
   <BrowserRouter>
     <AuthProvider>
       <Routes>
-        <Route element={<NavBar />} path="/home" />
+        <Route element={<NavBar />} path="/" />
         {/* <Route element={<Map />}  path="/map" /> */}
         <Route element={<Login />}  path="/login" />
         {/* <Route element={<App />}  path="/" /> */}

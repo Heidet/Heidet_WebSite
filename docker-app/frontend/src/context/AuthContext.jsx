@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
         console.log('dev')
         var locationHostSite = window.location.hostname+":8010"
     }
-    console.log('process.env.NODE_ENV =>', process.env.NODE_ENV)
+
     const response = await fetch("http://"+locationHostSite+"/api/login/token/", {
       method: "POST",
       headers: {
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
       localStorage.setItem("authTokens", JSON.stringify(data));
-      navigate("/home");
+      navigate("/");
     } else {
         alert("Utilisateur ou mot de passe incorrect !");
     }

@@ -66,6 +66,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0"
+    "@faker-js/faker": "^7.6.0",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
