@@ -71,13 +71,15 @@ export const lightTheme = {
   bg: "#f7fafc",
   text: "black",
   shadow: "#cac2bc",
-  light: "#fff"
+  light: "#fff",
+  linkedin: "light"
 };
 
 export const darkTheme = {
   bg: "#1a202c",
   text: "white",
   shadow: "#2e4e5c",
-  light: "#4d7281"
+  light: "#4d7281",
+  linkedin: "black"
 };
 
