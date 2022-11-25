@@ -1,4 +1,6 @@
 import { css } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled from "styled-components";
 
 export const imageZoomEffect = css`
   img {
@@ -44,3 +46,38 @@ export const TitleStyles = css`
     }
   }
 `;
+
+export const GlobalStyles = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  body {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    // height: 100vh;
+    background: ${({ theme }) => theme.bg};
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.1s ease;
+  }
+`;  
+
+export const lightTheme = {
+  bg: "#f7fafc",
+  text: "black",
+  shadow: "#cac2bc",
+  light: "#fff"
+};
+
+export const darkTheme = {
+  bg: "#1a202c",
+  text: "white",
+  shadow: "#2e4e5c",
+  light: "#4d7281"
+};
+

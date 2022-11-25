@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// import './styles/index.css';
+import React, { useState, useEffect, useContext } from "react";
+import Login from './views/Login';
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import NavBar from "./components/NavBar";
+import {GlobalStyles, darkTheme, lightTheme} from './components/GlobalStyles/StylesReusable';
+import { useDarkMode } from './components/DarkMode';
+import { AuthProvider } from "./context/AuthContext";
+import PageNotFound from "./views/Errors/Error404"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Router,
+  Routes,
+} from "react-router-dom";
 
-function App() {
+
+export default function App() {
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+        <Routes>
+          <Route element={<NavBar theme={themeMode}  toggleTheme={toggleTheme} />} path="/" />
+          <Route element={<Login />}  path="/login" />
+          <Route element={<PageNotFound />} path="*" />
+        </Routes>
+    </ThemeProvider>
+  </AuthProvider>
   );
 }
 
-export default App;
+
+

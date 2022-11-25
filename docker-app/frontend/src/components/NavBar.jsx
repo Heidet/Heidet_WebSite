@@ -1,29 +1,31 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter as Router, Route, Routes, Redirect, Link } from 'react-router-dom'
 import styled from "styled-components";
 import { GiConsoleController, GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
-import { browserHistory } from 'react-router'
 import { Button, Dropdown, NavbarToggler, Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
-
+import '../styles/style.scss';
 import AuthContext from "../context/AuthContext";
 
-export default function NavBar() {
+export default function NavBar({ theme, toggleTheme }) {
   const [navbarState, setNavbarState] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
-  const html = document.querySelector("html");
-  console.log(html)
-  /* html.addEventListener("click", () => setNavbarState(false));  */
-  const [isOpen, setIsOpen] = useState(false);
-  console.log('vous êtes en mode :',process.env.NODE_ENV)
+  const [ isOpen, setIsOpen ] = useState(false);
+  const isLight = theme === "light";
   const toggle = () => setIsOpen(!isOpen);
+
+
   return (
     <>
       <Nav>
+      <div
+        id="toggle"
+        onClick={toggleTheme}
+      >
+        <div className="toggle-inner"/>
+      </div>
         <div className="brand1">
           <a href="/">
-            <p className="social-name">Heidet</p>
-
+            <p className="social-name">Heidet Antoine</p>
           </a>
           <div className="toggle">
             {navbarState ? (
@@ -37,7 +39,9 @@ export default function NavBar() {
               />
             )}
           </div>
+          
         </div>
+                
         <div className="logout-button">
             {user ? (
               <>
@@ -70,7 +74,7 @@ export default function NavBar() {
           </li>
           <li>
             <a href="traiteur">
-              Traiteur
+              4
             </a>
           </li>
           <li>
@@ -84,37 +88,37 @@ export default function NavBar() {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem
-                  href="/entrees"
+                  href="/"
                   tag="a"
                 >
                   1
                 </DropdownItem>
                 <DropdownItem
-                  href="/plats-chauds"
+                  href="/"
                   tag="a"
                 >
                   2
                 </DropdownItem> 
                 <DropdownItem
-                  href="/les-viandes"
+                  href="/"
                   tag="a"
                 >
                   3
                 </DropdownItem> 
                 <DropdownItem
-                  href="/les-fondues"
+                  href="/"
                   tag="a"
                 >
                   4
                 </DropdownItem> 
                 <DropdownItem
-                  href="/desserts"
+                  href="/"
                   tag="a"
                 >
                   5
                 </DropdownItem>  
                 <DropdownItem
-                  href="/vins"
+                  href="/"
                   tag="a"
                 >
                   6
@@ -128,7 +132,6 @@ export default function NavBar() {
         </ul>
       </Nav>
       <ResponsiveNav state={navbarState} className={navbarState ? "show" : ""}>
-
         <ul>
           <li>
             <a
@@ -195,18 +198,19 @@ export default function NavBar() {
     </>
   );
 }
+
+
 const GiMenu = styled(GiHamburgerMenu)`
   font-size: 20px;
 `
 
 const Nav = styled.nav`
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  padding: 0 4vw;
-  border-bottom: 2px solid #7a032a;
+  height: 80px;
+  padding: 0px 12vw;
+  border-bottom: 2px solid ${({ theme }) => theme.text};
   .logout-button {
     margin-right: 25em;
   }
@@ -215,18 +219,11 @@ const Nav = styled.nav`
   }
   .brand1 {
     .social-name{
-      color: #7a032a;
-      font-family: Brush Script MT, Brush Script Std, cursive;
-      font-size: 2em;
-      margin-bottom: 0;
-    }
-    .social-name-two{
-      color: black;
-      font-family: Brush Script MT, Brush Script Std, cursive;
-      font-size: 1.5em;
+      color: ${({ theme }) => theme.text};
+      font-family: Andale Mono, monospace;
+      margin-top: revert;
     }
     img {
-      margin-top: 1rem;
       cursor: pointer;
     }
     .toggle {
@@ -245,19 +242,19 @@ const Nav = styled.nav`
         width: 15em;
       }
       a {
-        color: #7a032a;
+        color: ${({ theme }) => theme.text};
         font-weight: 600;
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         transition: 0.3s ease-in-out;
         &:hover {
-          color: #f9c74f;
+          color: red;
         }
       }
    
       .active {
-        color: #f9c74f;
+        color: red;
       }
     }
   }
@@ -285,6 +282,7 @@ const Nav = styled.nav`
     }
   }
 `;
+
 const ResponsiveNav = styled.div`
   position: fixed;
   right: -100vw;
@@ -297,7 +295,7 @@ const ResponsiveNav = styled.div`
   display: flex;
   opacity: 0;
   visibility: hidden;
-  background-color: #333;
+  background-color: ${({ theme }) => theme.bg};
   ul {
     list-style-type: none;
     width: 100%;
@@ -308,7 +306,7 @@ const ResponsiveNav = styled.div`
       margin-left: 0rem;
       a {
         text-decoration: none;
-        color: #f9c74f;
+        color: ${({ theme }) => theme.text};
         font-size: 1.2rem;
         transition: 0.1s ease-in-out;
         &:hover {
