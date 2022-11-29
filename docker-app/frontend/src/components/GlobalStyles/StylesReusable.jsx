@@ -68,6 +68,7 @@ export const GlobalStyles = createGlobalStyle`
 `;  
 
 export const lightTheme = {
+  themeBootstrap : "bg-light",
   bg: "#f7fafc",
   text: "black",
   shadow: "#cac2bc",
@@ -76,10 +77,11 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  themeBootstrap : "bg-dark",
   bg: "#1a202c",
   text: "white",
   shadow: "#2e4e5c",
-  light: "#4d7281",
+  dark: "#4d7281",
   linkedin: "black"
 };
 

@@ -6,8 +6,8 @@ import styled from "styled-components";
 
 
 export default function Login () {
-  const { loginUser } = useContext(AuthContext);
-
+  const loginUser = useContext(AuthContext);
+  console.log(loginUser)
   const handleSubmit = e => {
     e.preventDefault();
     const username = e.target.username.value;

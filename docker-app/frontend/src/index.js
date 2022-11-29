@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './views/Login';
 import moment from 'moment-timezone';
 import {
   createBrowserRouter,
@@ -20,6 +21,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route element={<App />}  path="/" />
+      <Route element={<Login />}  path="login" />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
