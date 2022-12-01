@@ -81,7 +81,7 @@ export const darkTheme = {
   bg: "#1a202c",
   text: "white",
   shadow: "#2e4e5c",
-  dark: "#4d7281",
+  dark: 'rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important',
   linkedin: "black"
 };
 

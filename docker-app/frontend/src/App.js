@@ -5,7 +5,7 @@ import { GlobalStyles, darkTheme, lightTheme } from './components/GlobalStyles/S
 import { useDarkMode } from './components/DarkMode';
 import { AuthProvider } from './context/AuthContext';
 import PageNotFound from "./views/Errors/Error404";
-import Home from './views/Home';
+import Home from './views/Home/Home';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';

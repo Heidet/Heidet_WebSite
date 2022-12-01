@@ -42,24 +42,7 @@ export default function NavBar({ theme, toggleTheme }) {
           
         </div>
                 
-        <div className="logout-button">
-            {user ? (
-              <>
-                {/* <Link to="/">Home</Link> */}
-                {/* <Link to="/protected">Protected Page</Link> */}
-                <Button onClick={logoutUser}color="danger">
-                  Déconnecter
-                </Button>
-                {' '}
-                {/* <button onClick={logoutUser}>Logout</button> */}
-              </>
-            ) : (
-              <>
-                {/* <Link to="/login">Login</Link> */}
-                {/* <Link to="/register">Register</Link>  */}
-              </>
-            )}
-        </div>
+   
         <ul className="links">
           <li>
             <a href="/" className="active">
@@ -129,6 +112,24 @@ export default function NavBar({ theme, toggleTheme }) {
           <li className="litest">
             <a href="/#footer">Contact</a>
           </li>
+          {user ? (
+              <>
+                {/* <Link to="/">Home</Link> */}
+                {/* <Link to="/protected">Protected Page</Link> */}
+                <Button onClick={logoutUser} size="sm" color="danger">
+                  Déconnecter
+                </Button>
+                {' '}
+                {/* <button onClick={logoutUser}>Logout</button> */}
+              </>
+            ) : (
+              <>
+                <Button onClick={logoutUser} size="sm" color="success">
+                  Connexion
+                </Button>
+              </>
+            )}
+       
         </ul>
       </Nav>
       <ResponsiveNav state={navbarState} className={navbarState ? "show" : ""}>
@@ -211,9 +212,6 @@ const Nav = styled.nav`
   height: 80px;
   padding: 0px 12vw;
   border-bottom: 2px solid ${({ theme }) => theme.text};
-  .logout-button {
-    margin-right: 25em;
-  }
   a {
     text-decoration: none;
   }
@@ -234,6 +232,7 @@ const Nav = styled.nav`
     display: flex;
     list-style-type: none;
     gap: 2rem;
+    margin: initial;
     li {
       .nav-link {
         padding: 0;
@@ -259,7 +258,7 @@ const Nav = styled.nav`
     }
   }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    .logout-button  > button{
+    button{
       font-size: 10px!important;
     }
   }
@@ -276,9 +275,6 @@ const Nav = styled.nav`
     }
     .links {
       display: none;
-    }
-    .logout-button{
-      margin-right: initial!important;
     }
   }
 `;
@@ -299,10 +295,8 @@ const ResponsiveNav = styled.div`
   ul {
     list-style-type: none;
     width: 100%;
-    margin-top: 3rem;
     li {
       width: 100%;
-      margin: 1rem 0;
       margin-left: 0rem;
       a {
         text-decoration: none;

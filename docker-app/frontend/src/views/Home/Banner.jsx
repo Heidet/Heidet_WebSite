@@ -1,11 +1,11 @@
 import React, { useEffect, createRef, useContext } from "react";
 import styled from "styled-components";
 import { List, Container } from "reactstrap";
-import '../styles/style.scss';
+import '../../styles/style.scss';
 
 
-export default function Home({ theme, toggleTheme }) {
-    console.log(theme.linkedin)
+export default function Banner({ theme, toggleTheme }) {
+    // console.log(theme.linkedin)
     const ref = createRef(null);
 
 
@@ -18,13 +18,6 @@ export default function Home({ theme, toggleTheme }) {
 
         document.body.appendChild(script);
 
-        // console.log(document.getElementsByClassName('profile-badge.profile-badge--width-250.profile-badge--light'))
-        // if (ref.current.classList.contains('profile-badge')) {
-        //     console.log('Element contains class');
-        // } else {
-        //     console.log('Element does NOT contain class');
-        // }
- 
         return () => {
           document.body.removeChild(script);
           
@@ -38,7 +31,6 @@ export default function Home({ theme, toggleTheme }) {
     return (
     <>
         <ContainerHome
-            className={theme.themeBootstrap}
             fluid="sm"
         >
             {showLinkedinBadge()}
@@ -50,7 +42,7 @@ export default function Home({ theme, toggleTheme }) {
                     Consectetur adipiscing elit Consectetur adipiscing elit
                 </li>
                 <li>
-                    Integer molestie lorem at massa nteger molestie lorem at massa
+                    Integer molestie lorem at massa nteger molestie lorem at massa 
                 </li>
                 <li>
                     Facilisis in pretium nisl aliquet acilisis in pretium nisl aliquet
