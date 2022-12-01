@@ -36,42 +36,32 @@ export default function Banner({ theme, toggleTheme }) {
             {showLinkedinBadge()}
             <List type="inline">
                 <li>
-                    Lorem ipsum dolor sit amet Consectetur adipiscing elit
+                    Passionné par ce secteur d’activité, je suis curieux et j'aime expérimenter, <br />
+                    découvrir et apprendre au fur et à mesure de mes projets professionnels et personnels. 
                 </li>
                 <li>
-                    Consectetur adipiscing elit Consectetur adipiscing elit
+                    ReactJS / Django && Django Rest API / Docker 💕❤️💕❤️💕
                 </li>
+                <br />
                 <li>
-                    Integer molestie lorem at massa nteger molestie lorem at massa 
-                </li>
-                <li>
-                    Facilisis in pretium nisl aliquet acilisis in pretium nisl aliquet
-                </li>
-                <li>
-                    Nulla volutpat aliquam velit ulla volutpat aliquam velit
+                    Stack :
                     <ul>
                         <li>
-                            Phasellus iaculis neque
+                            Développement Front-End : JavaScript / ReactJS / Ext JS (NPM, Redux, Hooks, ReactDOM, ReactStrap)
                         </li>
                         <li>
-                            Purus sodales ultricies
+                            Développement Back-End : Django REST API (Oauth JWT, MVT, ORM, CRUD)
                         </li>
                         <li>
-                            Vestibulum laoreet porttitor sem
+                            OS : Windows, MacOS, Linux (Debian, Unbuntu, Kali ...)
                         </li>
                         <li>
-                            Ac tristique libero volutpat at
+                            Infrastructure et intégration continue : Docker et Docker-Compose, Ansible, Saas 
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Faucibus porta lacus fringilla vel ucibus porta lacus fringilla vel
-                </li>
-                <li>
-                    Aenean sit amet erat nunc enean sit amet erat nunc
-                </li>
-                <li>
-                    Eget porttitor lorem Eget porttitor lorem
+                    Centre d'intérêt: Blockchain / Cryptographie / Crypto-actif / NFT / Système décentralisé.
                 </li>
             </List>
         </ContainerHome>
@@ -80,10 +70,11 @@ export default function Banner({ theme, toggleTheme }) {
 }
 
 const ContainerHome = styled(Container)`
+    font-family: Andale Mono,monospace;    
     display: flex;
-    padding-top: 2em;
+    padding-top: 5em;
     justify-content: center;
-    gap: 3vw;
+    // gap: 1vw;
 `
 
 

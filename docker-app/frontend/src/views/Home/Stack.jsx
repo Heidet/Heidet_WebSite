@@ -6,6 +6,9 @@ import { TiHtml5 } from 'react-icons/ti';
 import { FaReact } from 'react-icons/fa';
 import { SiPython } from 'react-icons/si';
 import { VscTerminalPowershell } from 'react-icons/vsc';
+import { GrDocker } from 'react-icons/gr';
+import { SiAnsible } from 'react-icons/si';
+
 
 export default function Stack({ theme, toggleTheme }) {
 
@@ -23,11 +26,17 @@ export default function Stack({ theme, toggleTheme }) {
                     <IconStack>
                         <FaReact color="#63d6f8"/>
                     </IconStack>
+                    <IconStack>
+                        <SiPython color="#3b79aa"/>
+                    </IconStack>
                 </StackContainerIcon>
 
                 <StackContainerIcon>
                     <IconStack>
-                        <SiPython color="#3b79aa"/>
+                        <GrDocker color="#1f97f4"/>
+                    </IconStack>
+                    <IconStack>
+                        <SiAnsible color={theme.text}/>
                     </IconStack>
                     <IconStack>
                         <VscTerminalPowershell color={theme.text}/>
@@ -57,9 +66,9 @@ export default function Stack({ theme, toggleTheme }) {
             <Progress
                 animated
                 className="my-3"
-                color="info"
+                color="success"
                 striped
-                value={30}
+                value={50}
                 > SHELL / BASH
             </Progress>
             <Progress
@@ -68,6 +77,14 @@ export default function Stack({ theme, toggleTheme }) {
                 striped
                 value={40}
                 > Python / Django REST FRAMEWORK
+            </Progress>
+            <Progress
+                animated
+                className="my-3"
+                color="info"
+                striped
+                value={50}
+                > Docker / Ansible
             </Progress>
         </ContainerStack>
     </ContainerParent>
@@ -86,10 +103,11 @@ const StackContainerIcon = styled.div`
 
 const ContainerParent = styled(Container)`
     display: flex;
+    padding-top: 5em;
 `
 
 const ContainerStack = styled(Container)`
-    padding-left: 5em;  
+    padding-left: 3em; 
     align-self: center;
 `
 
