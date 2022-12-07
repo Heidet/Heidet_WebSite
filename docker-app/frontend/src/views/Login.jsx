@@ -108,6 +108,7 @@ const FormLogin = styled.div`
 @import url('https://fonts.googleapis.com/css?family=Jura:400');
 * { font-family: Jura, Arial; font-weight: 400; }
 body { margin: 0; padding: 0; }
+color : black;
 h1,h2,h3,h4,h5,h6,p { margin: 0; }
   display: grid;
   grid-template-columns: 1fr minmax(200px,400px) 1fr;
@@ -155,7 +156,7 @@ h1,h2,h3,h4,h5,h6,p { margin: 0; }
           align-items: center;
           margin: 10px;
           a {
-            color: #02c;
+            color: black;
           }
           em {
             grid-column: span 2;

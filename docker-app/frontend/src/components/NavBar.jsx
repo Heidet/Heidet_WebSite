@@ -248,12 +248,12 @@ const Nav = styled.nav`
         letter-spacing: 0.2rem;
         transition: 0.3s ease-in-out;
         &:hover {
-          color: red;
+          color: #4969e1;
         }
       }
    
       .active {
-        color: red;
+        color: #4969e1;
       }
     }
   }

@@ -56,7 +56,7 @@ export default function Banner({ theme, toggleTheme }) {
                             OS : Windows, MacOS, Linux (Debian, Unbuntu, Kali ...)
                         </li>
                         <li>
-                            Infrastructure et intégration continue : Docker et Docker-Compose, Ansible, Saas 
+                            Infrastructure et intégration continue : Apache, Nginx, Docker et Docker-Compose, Ansible, Saas 
                         </li>
                     </ul>
                 </li>
@@ -74,7 +74,6 @@ const ContainerHome = styled(Container)`
     display: flex;
     padding-top: 5em;
     justify-content: center;
-    // gap: 1vw;
 `
 
 
