@@ -56,8 +56,8 @@ export default function NavBar({ theme, toggleTheme }) {
             <a href="journées-a-themes">3</a>
           </li>
           <li>
-            <a href="traiteur">
-              4
+            <a href="/profile/github">
+              GitHub
             </a>
           </li>
           <li>
@@ -154,8 +154,8 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
-            <a href="traiteur" onClick={() => setNavbarState(false)}>
-              4
+          <a href="/profile/github"  onClick={() => setNavbarState(false)}>
+              GitHub
             </a>
           </li>
           <UncontrolledDropdown onClick={() => setNavbarState(true)} state={navbarState} className={navbarState ? "show" : ""}  nav inNavbar>
@@ -211,6 +211,7 @@ const Nav = styled.nav`
   align-items: center;
   height: 80px;
   padding: 0px 12vw;
+  background-color: ${({ theme }) => theme.bg};
   border-bottom: 2px solid ${({ theme }) => theme.text};
   a {
     text-decoration: none;

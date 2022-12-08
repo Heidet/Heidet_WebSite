@@ -70,6 +70,7 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme = {
   themeBootstrap : "bg-light",
   bg: "#f7fafc",
+  github_bg: "#21325e", 
   text: "black",
   shadow: "#cac2bc",
   light: "#fff",
@@ -82,6 +83,7 @@ export const darkTheme = {
   text: "white",
   shadow: "#2e4e5c",
   dark: 'rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important',
-  linkedin: "black"
+  linkedin: "black",
+  github_bg : "black"
 };
 
