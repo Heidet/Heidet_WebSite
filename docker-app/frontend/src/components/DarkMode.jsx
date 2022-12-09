@@ -12,25 +12,25 @@ export const useDarkMode = () => {
         body.classList.add('dark-mode')
         toggle.classList.add('toggle-active')
         //SET THEME IN LOCALSTORAGE
-        //window.localStorage.setItem("theme", "dark");
+        window.localStorage.setItem("theme", "dark");
       } else {
         setTheme("light");
         body.classList.remove('dark-mode')
         toggle.classList.remove('toggle-active')
         //SET THEME IN LOCALSTORAGE
-        //window.localStorage.setItem("theme", "light");
+        window.localStorage.setItem("theme", "light");
       }
     };
   
     useEffect(() => {
-      /* DETECTS BROWSER THEME
+      /* DETECTS BROWSER THEME */
       const localTheme = window.localStorage.getItem("theme");
-  
+      setTheme(localTheme);
       if (localTheme) {
         setTheme(localTheme);
       } else {
         window.localStorage.setItem("theme", "light");
-      } */
+      } 
     });
   
     return [theme, toggleTheme];

@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './views/Login';
 import moment from 'moment-timezone';
 import PageNotFound from "./views/Errors/Error404";
+import GitHub from "./components/GitHub/index";
 import GithubError from "./components/GitHub/GithubError";
-import UserProfile from "./components/GitHub/UserProfile";
-import GitHubHome from "./components/GitHub/GitHubHome";
+
 
 import {
   createBrowserRouter,
@@ -29,8 +29,7 @@ ReactDOM.render(
       <Routes>
         <Route element={<App />}  path="/" />
         <Route element={<Login />}  path="login" />
-        <Route path='/github' element={<GitHubHome />} />
-        <Route path='/profile/github' element={<UserProfile />} />
+        <Route path='/profile/github' element={<GitHub />} />
         <Route path='/error' element={<GithubError />} />
         <Route element={<PageNotFound />} path="*" />
       </Routes>

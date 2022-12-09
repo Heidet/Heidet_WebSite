@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "../NavBar";
+import styled from "styled-components";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaCalendarAlt } from "react-icons/fa";
 import { ThemeProvider } from 'styled-components';
-import styled from "styled-components";
+import { BsGithub } from "react-icons/bs";
 import { darkTheme, lightTheme } from '../GlobalStyles/StylesReusable';
 import { useDarkMode } from '../DarkMode';
 
@@ -33,9 +33,9 @@ export default function Header({ data }) {
 		const year = array[0];
 		return `Joined ${month} ${day}, ${year}`;
 	};
+
 	return (
 		<ThemeProvider theme={themeMode}>
-			<NavBar theme={themeMode}  toggleTheme={toggleTheme}/>
 			<ProfilHeader>
 				<div className='profile__header' >
 					<div className='profile__nav'>
@@ -52,7 +52,7 @@ export default function Header({ data }) {
 							target='_blank'
 							rel='noreferrer'
 						>
-							@{data.login}
+							<BsGithub /> 
 						</a>
 						<div className='profile__info'>
 							<div style={{ display: "flex", marginRight: "30px", color: "#ddd" }}>
@@ -91,34 +91,28 @@ const ProfilHeader = styled.div`
 	@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 	* {
 		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
 		font-family: "Space Grotesk", sans-serif;
 	}
 	a {
 		text-decoration: none;
 		color: #ddd;
 	}
+
 	.profile__header {
 		width: 100%;
 		background-color: ${({ theme }) => theme.github_bg};
 		padding-bottom: 40px;
 	}
 	.profile__nav {
-		width: 100%;
-		height: 10vh;
 		padding: 20px;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 20px;
 	}
 	.profile__nav h2 {
-		color: #c4ddff;
+		color: ${({ theme }) => theme.github_profile__details};
 	}
 	.loading {
 		height: 100vh;
-		background-color: #21325e;
+		background-color: ${({ theme }) => theme.github_bg};
 		color: #fff;
 	}
 	.loading,
@@ -129,7 +123,7 @@ const ProfilHeader = styled.div`
 		flex-direction: column;
 	}
 	.profile__image {
-		border: 10px solid #7fb5ff;
+		border: 10px solid ${({ theme }) => theme.github_image_border};
 		border-radius: 50%;
 		width: 150px;
 		object-fit: contain;
@@ -140,8 +134,8 @@ const ProfilHeader = styled.div`
 		margin-bottom: 10px;
 	}
 	.profile__url {
-		color: #7fb5ff;
-		font-size: 20px;
+		color: ${({ theme }) => theme.github_image_border};
+		font-size: 40px;
 	}
 	.profile__url:hover,
 	.errorContainer > a:hover {
@@ -160,7 +154,7 @@ const ProfilHeader = styled.div`
 		margin-top: 20px;
 	}
 	.profile__details div {
-		background-color: #3a5ba0;
+		background-color: ${({ theme }) => theme.github_profile__details};
 		padding: 20px;
 		margin: 10px;
 		text-align: center;
@@ -168,7 +162,7 @@ const ProfilHeader = styled.div`
 		width: 150px;
 	}
 	.profile__text {
-		color: #fff;
+		color: ${({ theme }) => theme.github_profile__text};
 		font-size: 26px;
 	}
 

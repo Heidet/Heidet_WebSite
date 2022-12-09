@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export default function Footer({ theme, toggleTheme }) {
   return (
@@ -15,9 +16,23 @@ export default function Footer({ theme, toggleTheme }) {
           <div className="title">
             <h3></h3>
           </div>
-       
+
           <div>
             <a href="/mentions" className="active">
+
+            </a>
+          </div>
+          <div>
+            <a href="/profile/github" className="active">
+              <BsGithub color="white" size={40}/> 
+            </a>
+          </div>
+
+          <br />
+
+          <div>
+            <a href="https://www.linkedin.com/in/antoine-heidet/" target="_blank" className="active">
+              <BsLinkedin color="white" size={40}/> 
             </a>
           </div>
         </div>

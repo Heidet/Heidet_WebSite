@@ -71,10 +71,13 @@ export const lightTheme = {
   themeBootstrap : "bg-light",
   bg: "#f7fafc",
   github_bg: "#21325e", 
+  github_image_border : "#7fb5ff",
   text: "black",
   shadow: "#cac2bc",
   light: "#fff",
-  linkedin: "light"
+  linkedin: "light",
+  github_profile__details : "#3a5ba0",
+  github_profile__text: "white"
 };
 
 export const darkTheme = {
@@ -84,6 +87,9 @@ export const darkTheme = {
   shadow: "#2e4e5c",
   dark: 'rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important',
   linkedin: "black",
-  github_bg : "black"
+  github_bg : "black",
+  github_image_border : "white",
+  github_profile__details : "white",
+  github_profile__text: "black"
 };
 

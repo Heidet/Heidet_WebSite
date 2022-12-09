@@ -15,7 +15,6 @@ export default function Banner({ theme, toggleTheme }) {
         script.src = 'https://platform.linkedin.com/badges/js/profile.js';
         script.async = true;
         script.defer = true;
-
         document.body.appendChild(script);
 
         return () => {
@@ -25,7 +24,7 @@ export default function Banner({ theme, toggleTheme }) {
     }, []);
 
     const showLinkedinBadge = () => {
-        return (<div className="badge-base LI-profile-badge" ref={ref} data-locale="fr_FR" data-size="medium" data-theme={theme.linkedin} data-type="VERTICAL" data-vanity="antoine-heidet" data-version="v1"></div>)
+        return (<div className="badge-base LI-profile-badge" ref={ref} data-locale="fr_FR" data-size="medium" data-theme='light' data-type="VERTICAL" data-vanity="antoine-heidet" data-version="v1"></div>)
     }
 
     return (
@@ -74,6 +73,7 @@ const ContainerHome = styled(Container)`
     display: flex;
     padding-top: 5em;
     justify-content: center;
+    color : ${({ theme }) => theme.text};
 `
 
 

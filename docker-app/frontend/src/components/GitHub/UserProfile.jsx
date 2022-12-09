@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { BsCircleFill, BsFillStarFill } from "react-icons/bs";
+import { BsCircleFill, BsFillStarFill, BsGithub } from "react-icons/bs";
 import { BiGitRepoForked } from "react-icons/bi";
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../GlobalStyles/StylesReusable';
@@ -18,8 +18,7 @@ import {
 
 
 export default function UserProfile () {
-	const { username } = useParams();
-	const [ userName, setUserName] = useState('Heidet');
+	const [ userName, setUserName] = useState(process.env.REACT_APP_USER);
 	const [theme, toggleTheme] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
 	const navigate = useNavigate();
@@ -30,27 +29,18 @@ export default function UserProfile () {
 	const [mostStarred, setMostStarred] = useState([]);
 	const [starsPerLanguageArray, setStarsPerLanguageArray] = useState([]);
 	const [topLanguages, setTopLanguages] = useState([]);
-	// console.log('userData =>', userData)
-	// console.log('username =>',username)
 
 	useEffect(() => {
 		function fetchGitHubUser() {
-
-
-			// fetch(`https://api.github.com/users/${username}`)
-			// setUsername('Heidet')
-			fetch(`https://api.github.com/users/Heidet`)
+			fetch(`https://api.github.com/users/${process.env.REACT_APP_USER}`)
 				.then((res) => res.json())
 				.then((data) => {
-					console.log('data =>',data )
 					if (data.message) {
 						setError(true);
 						setLoading(false);
 					} else {
-						console.log('data =>',data )
 						setUserData(data);
 						setLoading(false);
-						// setUserData(data);
 					}
 				})
 				.catch((err) => {
@@ -73,94 +63,90 @@ export default function UserProfile () {
 		}
 		authenticate();
 	}, [userName, error]);
-	if (loading) {
-		return <div className='loading'>Chargement...</div>;
-	}
+
+	// if (loading) {
+	// 	return <div className='loading'>Chargement...</div>;
+	// }
 	if (error) {
 		return navigate("/error");
 	}
 	return (
 		<ThemeProvider theme={themeMode}>
-		<Profil className='profile'>
-			<Header data={userData} />
-			<main className='main' style={{ padding: "30px" }}>
-				<div className='card__container'>
-					<Card>
-						<Title>Top Languages</Title>
-						<DonutChart
-							data={topLanguages}
-							category='count'
-							variant='pie'
-							dataKey='lang'
-							marginTop='mt-6'
-							colors={["yellow", "blue", "red", "blue"]}
-						/>
-					</Card>
-					<Card>
-						<Title>Most Starred</Title>
-						<BarChart
-							data={mostStarred}
-							dataKey='name'
-							categories={["stars"]}
-							colors={["blue"]}
-							marginTop='mt-6'
-							yAxisWidth='w-6'
-						/>
-					</Card>
-					<Card>
-						<Title>Stars per Language</Title>
-						<DonutChart
-							data={starsPerLanguageArray}
-							category='stars'
-							dataKey='lang'
-							marginTop='mt-6'
-							colors={["yellow", "blue", "red", "blue"]}
-						/>
-					</Card>
-				</div>
+			<Profil>
+				<Header data={userData} />
+				<main className='main' style={{ padding: "30px" }}>
+					<div className='card__container'>
+						<Card>
+							<Title>Top Langages</Title>
+							<DonutChart
+								data={topLanguages}
+								category='count'
+								variant='pie'
+								dataKey='lang'
+								marginTop='mt-6'
+								colors={["yellow", "blue", "red", "blue"]}
+							/>
+						</Card>
+						<Card>
+							<Title>Le plus like</Title>
+							<BarChart
+								data={mostStarred}
+								dataKey='name'
+								categories={["stars"]}
+								colors={["blue"]}
+								marginTop='mt-6'
+								yAxisWidth='w-6'
+							/>
+						</Card>
+						<Card>
+							<Title>Like par Langage</Title>
+							<DonutChart
+								data={starsPerLanguageArray}
+								category='stars'
+								dataKey='lang'
+								marginTop='mt-6'
+								colors={["yellow", "blue", "red", "blue"]}
+							/>
+						</Card>
+					</div>
 
-				<div className='second__main'>
-					<h2>Repositories</h2>
-					<div className='repos__container'>
-						{repos.map((repo) => (
-							<div className='repo' key={repo.id}>
-								<h3 id='repo__name'>{repo.name}</h3>
-								<p id='repo__description'>{repo.description}</p>
-								<div className='repo__icons'>
-									<div>
-										<BsCircleFill color={langColors[repo.language]} />
-										<p>{repo.language || "Unknown"}</p>
-									</div>
-									<div>
-										<BsFillStarFill />
-										<p>{repo.stargazers_count}</p>
-									</div>
-									<div>
-										<BiGitRepoForked />
-										<p>{repo.size} KB</p>
+					<div className='second__main'>
+						<h2>Repositories</h2>
+						<div className='repos__container'>
+							{repos.map((repo) => (
+								<div className='repo' key={repo.id}>
+									<h3 id='repo__name'>{repo.name}</h3>
+									<p id='repo__description'>{repo.description}</p>
+									<div className='repo__icons'>
+										<div>
+											<BsCircleFill color={langColors[repo.language]} />
+											<p>{repo.language || "Unknown"}</p>
+										</div>
+										<div>
+											<BsFillStarFill />
+											<p>{repo.stargazers_count}</p>
+										</div>
+										<div>
+											<BiGitRepoForked />
+											<p>{repo.size} KB</p>
+										</div>
 									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
-				</div>
-			</main>
-		</Profil>
+				</main>
+			</Profil>
 		</ThemeProvider>
 	);
 };
 
+
+
 const Profil = styled.div`
-	@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-		font-family: "Space Grotesk", sans-serif;
-	}
-	body {
-		margin: 0;
-		padding: 0;
+	.main {
+		background-color: ${({ theme }) => theme.bg};
+		color: ${({ theme }) => theme.text};
 	}
 	input {
 		padding: 20px;
@@ -179,34 +165,6 @@ const Profil = styled.div`
 		text-decoration: none;
 		color: #ddd;
 	}
-	.home {
-		background-color: ${({ theme }) => theme.bg};
-		min-height: 100vh;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.home__form {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-	.home__form > * {
-		margin-bottom: 30px;
-	}
-	.githubIcon {
-		font-size: 70px;
-		color: #7fb5ff;
-		margin-bottom: 20px;
-	}
-
-	.home__link {
-		margin-right: 20px;
-	}
-
 	.card__container,
 	.repos__container {
 		display: flex;
@@ -269,9 +227,6 @@ const Profil = styled.div`
 		margin-bottom: 30px;
 	}
 	@media screen and (max-width: 768px) {
-		.home__form {
-			padding: 20px;
-		}
 		label {
 			font-size: 22px;
 		}
