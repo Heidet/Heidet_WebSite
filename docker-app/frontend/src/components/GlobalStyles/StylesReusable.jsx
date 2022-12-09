@@ -77,7 +77,7 @@ export const lightTheme = {
   light: "#fff",
   linkedin: "light",
   github_profile__details : "#3a5ba0",
-  github_profile__text: "white"
+
 };
 
 export const darkTheme = {
@@ -90,6 +90,6 @@ export const darkTheme = {
   github_bg : "black",
   github_image_border : "white",
   github_profile__details : "white",
-  github_profile__text: "black"
+
 };
 

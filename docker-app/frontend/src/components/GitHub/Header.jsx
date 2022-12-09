@@ -68,15 +68,15 @@ export default function Header({ data }) {
 						<div className='profile__details'>
 							<div>
 								<p className='profile__text'>{data.public_repos}</p>
-								<p style={{ color: "#21325e" }}>Repositories</p>
+								<p style={{ color: theme.text }}>Repositories</p>
 							</div>
 							<div>
 								<p className='profile__text'>{data.followers}</p>
-								<p style={{ color: "#21325e" }}>Followers</p>
+								<p style={{ color: theme.text }}>Followers</p>
 							</div>
 							<div>
 								<p className='profile__text'>{data.following}</p>
-								<p style={{ color: "#21325e" }}>Following</p>
+								<p style={{ color: theme.text }}>Following</p>
 							</div>
 						</div>
 					</div>
@@ -148,13 +148,14 @@ const ProfilHeader = styled.div`
 		margin-top: 15px;
 	}
 	.profile__details {
+		
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-top: 20px;
 	}
 	.profile__details div {
-		background-color: ${({ theme }) => theme.github_profile__details};
+		background-color: ${({ theme }) => theme.bg};
 		padding: 20px;
 		margin: 10px;
 		text-align: center;
@@ -162,7 +163,7 @@ const ProfilHeader = styled.div`
 		width: 150px;
 	}
 	.profile__text {
-		color: ${({ theme }) => theme.github_profile__text};
+		color: ${({ theme }) => theme.text};
 		font-size: 26px;
 	}
 

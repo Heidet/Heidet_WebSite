@@ -18,6 +18,7 @@ import {
 
 
 export default function UserProfile () {
+	const { username } = useParams();
 	const [ userName, setUserName] = useState(process.env.REACT_APP_USER);
 	const [theme, toggleTheme] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
@@ -32,7 +33,7 @@ export default function UserProfile () {
 
 	useEffect(() => {
 		function fetchGitHubUser() {
-			fetch(`https://api.github.com/users/${process.env.REACT_APP_USER}`)
+			fetch(`https://api.github.com/users/${userName}`)
 				.then((res) => res.json())
 				.then((data) => {
 					if (data.message) {
@@ -64,9 +65,9 @@ export default function UserProfile () {
 		authenticate();
 	}, [userName, error]);
 
-	// if (loading) {
-	// 	return <div className='loading'>Chargement...</div>;
-	// }
+	if (loading) {
+		return <div className='loading'>Chargement...</div>;
+	}
 	if (error) {
 		return navigate("/error");
 	}
@@ -142,9 +143,12 @@ export default function UserProfile () {
 };
 
 
-
 const Profil = styled.div`
 	.main {
+		background-color: ${({ theme }) => theme.bg};
+		color: ${({ theme }) => theme.text};
+	}
+	.tremor-base {
 		background-color: ${({ theme }) => theme.bg};
 		color: ${({ theme }) => theme.text};
 	}

@@ -6,30 +6,19 @@ export default function Footer({ theme, toggleTheme }) {
   return (
     <div className="footer">
       <Section id="footer">
-        <div className="quality container">  
-          
-          <ul>
-           
-          </ul>
-        </div>
         <div className="about container">
-          <div className="title">
-            <h3></h3>
-          </div>
+     
 
-          <div>
-            <a href="/mentions" className="active">
-
-            </a>
-          </div>
+          {/* <div>
+          <a href="/mentions" className="active">
+          Mentions
+        </a>
+          </div> */}
           <div>
             <a href="/profile/github" className="active">
               <BsGithub color="white" size={40}/> 
             </a>
           </div>
-
-          <br />
-
           <div>
             <a href="https://www.linkedin.com/in/antoine-heidet/" target="_blank" className="active">
               <BsLinkedin color="white" size={40}/> 
@@ -37,12 +26,10 @@ export default function Footer({ theme, toggleTheme }) {
           </div>
         </div>
         
-        <div className="contact container">
-  
-        </div>
-
       </Section>
+      
       <LowerFooter className="lower__footer">
+  
         <h2>
           Copyright &copy; 2022 <Span>Heidet Antoine</Span>
         </h2>
@@ -56,15 +43,15 @@ const Span = styled.span`
 `; 
 
 const Section = styled.footer`
-  margin: 0;
+  // margin: 0;
   margin-top: 2em;
   background: linear-gradient(to right,#4969e1,#09173e);
   color: ${({ theme }) => theme.text};
-  display: grid;
+  // display: grid;
   border-top: 2px solid ${({ theme }) => theme.text};
-  grid-template-columns: repeat(5, 1fr);
-  padding: 4vw;
-  gap: 5vw;
+  // grid-template-columns: repeat(5, 1fr);
+  padding: 2em;
+  // gap: 5vw;
   p {
     font-size: 15px;
     line-height: 2rem;
@@ -76,9 +63,11 @@ const Section = styled.footer`
     font-size: 15px;
   }
   .container {
+    display: inline-flex;
+    // width: 120%;
+    // flex-direction: column;
     display: flex;
-    width: 120%;
-    flex-direction: column;
+    justify-content: center;
     gap: 0.5rem;
     h3 {
       font-size: 2rem;

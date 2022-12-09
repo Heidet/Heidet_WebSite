@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { GiConsoleController, GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import { Button, Dropdown, NavbarToggler, Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
 import '../styles/style.scss';
@@ -21,7 +21,7 @@ export default function NavBar({ theme, toggleTheme }) {
         id="toggle"
         onClick={toggleTheme}
       >
-        <div className="toggle-inner"/>
+      <div className="toggle-inner"/>
       </div>
         <div className="brand1">
           <a href="/">
@@ -39,10 +39,8 @@ export default function NavBar({ theme, toggleTheme }) {
               />
             )}
           </div>
-          
         </div>
                 
-   
         <ul className="links">
           <li>
             <a href="/" className="active">
@@ -50,15 +48,17 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
-            <a href="/#services">Nos services</a>
+            <a href="/profile/github"  onClick={() => setNavbarState(false)}>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="/Certificats" onClick={() => setNavbarState(false)}>
+              Certifications
+            </a>
           </li>
           <li>
             <a href="journées-a-themes">3</a>
-          </li>
-          <li>
-            <a href="/profile/github">
-              GitHub
-            </a>
           </li>
           <li>
             <UncontrolledDropdown setActiveFromChild>
@@ -144,18 +144,18 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
+            <a href="/profile/github"  onClick={() => setNavbarState(false)}>
+                GitHub
+            </a>
+          </li>
+          <li>
             <a href="/#services" onClick={() => setNavbarState(false)}>
-              Nos services
+              Certifications
             </a>
           </li>
           <li>
             <a href="journées-a-themes" onClick={() => setNavbarState(false)}>
               3
-            </a>
-          </li>
-          <li>
-          <a href="/profile/github"  onClick={() => setNavbarState(false)}>
-              GitHub
             </a>
           </li>
           <UncontrolledDropdown onClick={() => setNavbarState(true)} state={navbarState} className={navbarState ? "show" : ""}  nav inNavbar>
