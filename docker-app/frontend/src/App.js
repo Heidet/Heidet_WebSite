@@ -8,7 +8,7 @@ import Home from './views/Home/index';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { ClearCacheProvider, useClearCacheCtx } from 'react-clear-cache';
 import {
   BrowserRouter,
   Route,
@@ -18,11 +18,13 @@ import {
 
 
 export default function App() {
+  const { isLatestVersion, emptyCacheStorage } = useClearCacheCtx();
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
       // <AuthProvider>
+      <ClearCacheProvider duration={1000}>
         <ThemeProvider theme={themeMode}>
         <GlobalStyles />
           <Routes>
@@ -36,7 +38,8 @@ export default function App() {
               path="/" 
             />
           </Routes>
-      </ThemeProvider>
+        </ThemeProvider>
+      </ClearCacheProvider>
     // </AuthProvider>
   );
 }
