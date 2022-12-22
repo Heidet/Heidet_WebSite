@@ -1,4 +1,4 @@
-import React, { useEffect, createRef, useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Container, Progress } from "reactstrap";
 import '../../styles/style.scss';

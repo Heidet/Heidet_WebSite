@@ -20,7 +20,7 @@ export default function Footer({ theme, toggleTheme }) {
             </a>
           </div>
           <div>
-            <a href="https://www.linkedin.com/in/antoine-heidet/" target="_blank" className="active">
+            <a href="https://www.linkedin.com/in/antoine-heidet/" rel="noreferrer" target="_blank" className="active">
               <BsLinkedin color="white" size={40}/> 
             </a>
           </div>

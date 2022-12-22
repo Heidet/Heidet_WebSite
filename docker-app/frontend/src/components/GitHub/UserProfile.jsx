@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { BsCircleFill, BsFillStarFill, BsGithub } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { BsCircleFill, BsFillStarFill } from "react-icons/bs";
 import { BiGitRepoForked } from "react-icons/bi";
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../GlobalStyles/StylesReusable';
@@ -18,7 +18,6 @@ import {
 
 
 export default function UserProfile () {
-	const { username } = useParams();
 	const [ userName, setUserName] = useState(process.env.REACT_APP_USER);
 	const [theme, toggleTheme] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;

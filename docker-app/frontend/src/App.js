@@ -24,7 +24,7 @@ export default function App() {
 
   return (
       // <AuthProvider>
-      <ClearCacheProvider duration={1000}>
+      // <ClearCacheProvider duration={1000}>
         <ThemeProvider theme={themeMode}>
         <GlobalStyles />
           <Routes>
@@ -39,7 +39,7 @@ export default function App() {
             />
           </Routes>
         </ThemeProvider>
-      </ClearCacheProvider>
+      // </ClearCacheProvider>
     // </AuthProvider>
   );
 }

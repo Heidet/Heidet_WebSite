@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
-import { Button, Dropdown, NavbarToggler, Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { Button, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
 import '../styles/style.scss';
 import AuthContext from "../context/AuthContext";
 
@@ -10,7 +10,6 @@ export default function NavBar({ theme, toggleTheme }) {
   const [navbarState, setNavbarState] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
   const [ isOpen, setIsOpen ] = useState(false);
-  const isLight = theme === "light";
   const toggle = () => setIsOpen(!isOpen);
 
 

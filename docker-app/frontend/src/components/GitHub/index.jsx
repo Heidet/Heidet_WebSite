@@ -9,8 +9,6 @@ import NavBar from "../NavBar";
 export default function GitHub() {
 	const [theme, toggleTheme] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
-    console.log(themeMode)
-    console.log(toggleTheme)
     
     return (
     <>

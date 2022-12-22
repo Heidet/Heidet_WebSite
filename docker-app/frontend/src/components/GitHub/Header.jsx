@@ -148,11 +148,19 @@ const ProfilHeader = styled.div`
 		margin-top: 15px;
 	}
 	.profile__details {
-		
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-top: 20px;
+	}
+	.profile__details {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20px;
+	}
+	.profile__details div > p {
+		color : ${({ theme }) => theme.text};
 	}
 	.profile__details div {
 		background-color: ${({ theme }) => theme.bg};

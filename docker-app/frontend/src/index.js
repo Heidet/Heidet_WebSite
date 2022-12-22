@@ -14,10 +14,7 @@ import GitHub from "./components/GitHub/index";
 import GithubError from "./components/GitHub/GithubError";
 import "@tremor/react/dist/esm/tremor.css";
 import {
-  createBrowserRouter,
-  RouterProvider,
   Route,
-  Router,
   Routes,
 } from "react-router-dom";
 

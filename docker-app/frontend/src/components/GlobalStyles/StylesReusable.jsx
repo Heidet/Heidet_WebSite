@@ -1,6 +1,5 @@
 import { css } from "styled-components";
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import styled from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const imageZoomEffect = css`
   img {

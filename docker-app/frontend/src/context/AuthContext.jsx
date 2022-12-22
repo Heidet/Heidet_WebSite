@@ -21,13 +21,13 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const loginUser = async (username, password) => {
-
+    var locationHostSite = undefined
     if(process.env.NODE_ENV === 'production'){
       console.log('production')
-      var locationHostSite = window.location.hostname
+      locationHostSite = window.location.hostname
     }else {
-        console.log('dev')
-        var locationHostSite = window.location.hostname+":8010"
+      console.log('dev')
+      locationHostSite = window.location.hostname+":8010"
     }
 
     const response = await fetch("http://"+locationHostSite+"/api/login/token/", {
