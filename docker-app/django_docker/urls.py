@@ -33,7 +33,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # path('api/admin/', admin.site.urls),
     # path('api/', include(router.urls)),
-    # path('api/login/', include("api.urls"))
+    path('api/login/', include("api.urls"))
 ]
 
 if settings.DEBUG:

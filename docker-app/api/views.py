@@ -28,6 +28,7 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def testEndPoint(request):

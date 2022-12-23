@@ -6,14 +6,20 @@ import styled from "styled-components";
 
 
 export default function Login () {
-  const loginUser = useContext(AuthContext);
+  console.log(AuthContext)
+  const { loginUser } = useContext(AuthContext);
   console.log(loginUser)
   const handleSubmit = e => {
     e.preventDefault();
+    // console.log(username)
+    // console.log(password)
     const username = e.target.username.value;
     const password = e.target.password.value;
+    console.log(username)
+    console.log(password)
     username.length > 0 && loginUser(username, password);
   };
+
 
   // render() {
   //   switch(this.state.currentView) {
