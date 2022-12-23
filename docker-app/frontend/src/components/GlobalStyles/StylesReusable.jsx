@@ -76,6 +76,8 @@ export const lightTheme = {
   light: "#fff",
   linkedin: "light",
   github_profile__details : "#3a5ba0",
+  cardCertifs1: '#08f',
+  cardCertifs2: '#f03',
 
 };
 
@@ -89,6 +91,8 @@ export const darkTheme = {
   github_bg : "black",
   github_image_border : "white",
   github_profile__details : "white",
+  cardCertifs1: '#078158',
+  cardCertifs2: '#058d7a',
 
 };
 

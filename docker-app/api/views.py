@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 from rest_framework import viewsets
 from .serializers import *
 from .models import *
@@ -14,7 +12,13 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 
-# Create your views here.
+
+
+class CertifCardsView(viewsets.ModelViewSet):
+    serializer_class = CertifCardsSerializers
+    queryset = CertifCardsModel.objects.all()
+
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
@@ -35,6 +39,7 @@ def testEndPoint(request):
         data = f'Congratulation your API just responded to POST request with text: {text}'
         return Response({'response': data}, status=status.HTTP_200_OK)
     return Response({}, status.HTTP_400_BAD_REQUEST)
+
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer

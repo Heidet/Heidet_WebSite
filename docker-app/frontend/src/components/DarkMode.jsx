@@ -31,7 +31,7 @@ export const useDarkMode = () => {
       } else {
         window.localStorage.setItem("theme", "light");
       } 
-    }, []);
+    });
   
     return [theme, toggleTheme];
 };

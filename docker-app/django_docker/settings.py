@@ -17,6 +17,7 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 CORS_ORIGIN_ALLOW_ALL = True
+
 # Connect to front-end ReactJS
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3005'

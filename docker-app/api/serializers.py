@@ -11,6 +11,12 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # S?rialiseurs pour convertir les instances de mod?le en JSON afin que l'interface puisse fonctionner avec les donn?es re?ues.
 
 
+class CertifCardsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = CertifCardsModel
+        fields = ('id', 'title', 'identifiant', 'etablissement', 'urlcertif', 'datefield')
+        
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
