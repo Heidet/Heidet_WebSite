@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './views/Login';
+import Contact from './views/Contact/index';
+
 import Certificats from './views/Certificats';
 import moment from 'moment-timezone';
 import PageNotFound from "./views/Errors/Error404";
@@ -27,7 +29,8 @@ ReactDOM.render(
       <Routes>
         <Route element={<App />}  path="/" />
         <Route element={<Login />}  path="login" />
-        <Route element={<Certificats />}  path="/Certificats" />
+        <Route element={<Certificats />}  path="/certificats" />
+        <Route element={<Contact />}  path="/contact" />
         <Route path='/profile/github' element={<GitHub />} />
         <Route path='/error' element={<GithubError />} />
         <Route element={<PageNotFound />} path="*" />

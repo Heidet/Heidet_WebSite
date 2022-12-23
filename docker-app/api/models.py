@@ -12,3 +12,13 @@ class CertifCardsModel(models.Model):
     
     def _str_(self):
         return self.title
+    
+    
+
+class MessagesBannetteModel(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.EmailField(max_length=254)
+    message = models.TextField()
+    
+    def _str_(self):
+        return self.message

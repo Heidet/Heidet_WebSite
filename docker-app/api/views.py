@@ -19,6 +19,11 @@ class CertifCardsView(viewsets.ModelViewSet):
     queryset = CertifCardsModel.objects.all()
 
 
+class MessagesBannetteView(viewsets.ModelViewSet):
+    serializer_class = MessageBannetteSerializer
+    queryset = MessagesBannetteModel.objects.all()
+
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [

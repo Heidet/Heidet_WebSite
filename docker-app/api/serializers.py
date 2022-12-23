@@ -17,6 +17,12 @@ class CertifCardsSerializers(serializers.ModelSerializer):
         fields = ('id', 'title', 'identifiant', 'etablissement', 'urlcertif', 'datefield')
         
 
+class MessageBannetteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MessagesBannetteModel
+        fields = ('id', 'name', 'email', 'message')
+        
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

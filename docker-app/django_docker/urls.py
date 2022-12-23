@@ -25,6 +25,8 @@ from api import views
 
 router = routers.DefaultRouter()
 router.register(r'Certifications', views.CertifCardsView, 'certifications')
+router.register(r'Bannette', views.MessagesBannetteView, 'bannette')
+
 
 
     

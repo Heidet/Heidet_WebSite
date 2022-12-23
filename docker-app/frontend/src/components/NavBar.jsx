@@ -52,7 +52,7 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
-            <a href="/Certificats" onClick={() => setNavbarState(false)}>
+            <a href="/certificats" onClick={() => setNavbarState(false)}>
               Certifications
             </a>
           </li>
@@ -109,7 +109,7 @@ export default function NavBar({ theme, toggleTheme }) {
             </UncontrolledDropdown>
           </li>
           <li className="litest">
-            <a href="/#footer">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
           {user ? (
               <>
@@ -148,7 +148,7 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
-            <a href="/#services" onClick={() => setNavbarState(false)}>
+            <a href="/certificats" onClick={() => setNavbarState(false)}>
               Certifications
             </a>
           </li>
@@ -189,7 +189,7 @@ export default function NavBar({ theme, toggleTheme }) {
               </DropdownMenu>
             </UncontrolledDropdown>
           <li>
-            <a href="/#footer" onClick={() => setNavbarState(false)}>
+            <a href="/contact" onClick={() => setNavbarState(false)}>
               Contact
             </a>
           </li>

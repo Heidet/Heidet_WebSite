@@ -76,7 +76,6 @@ const ContainerCertifs = styled(Container)`
     }
 `
 
-
 const CardCertifs = styled(Card)`
     color: ${({ theme }) => theme.text};
     font-family: monospace;
