@@ -5,6 +5,7 @@ import '../../styles/style.scss';
 
 
 export default function Home({ theme, toggleTheme }) {
+    
     return (
     <>
         <div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Container, CardHeader, CardText, Button, CardFooter, CardBody, CardTitle } from 'reactstrap';
 import styled from "styled-components";
 import axios from "axios";
+import Error404 from "../Errors/Error404";
 
 export default function Certifs({ theme, toggleTheme }){
     const [certifications, setCertifications] = useState(null);
@@ -21,7 +22,7 @@ export default function Certifs({ theme, toggleTheme }){
           .catch(console.error);
       };
 
-    if (!certifications) return null;
+    if (!certifications) return <Error404 />;
 
     return(    
         <>

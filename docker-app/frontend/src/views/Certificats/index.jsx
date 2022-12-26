@@ -5,6 +5,7 @@ import '../../styles/style.scss';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../../components/GlobalStyles/StylesReusable';
 import { useDarkMode } from '../../components/DarkMode';
+import Footer from "../../components/Footer";
 
 export default function Certificats() {
 	const [theme, toggleTheme] = useDarkMode();
@@ -16,6 +17,7 @@ export default function Certificats() {
             <ThemeProvider theme={themeMode}>
                 <NavBar theme={theme}  toggleTheme={toggleTheme} />
                 <Certifs theme={theme}  toggleTheme={toggleTheme}/>
+                <Footer />
             </ThemeProvider>
         </div>
     </>

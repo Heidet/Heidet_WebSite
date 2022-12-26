@@ -12,7 +12,6 @@ export default function NavBar({ theme, toggleTheme }) {
   const [ isOpen, setIsOpen ] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-
   return (
     <>
       <Nav>
@@ -56,8 +55,8 @@ export default function NavBar({ theme, toggleTheme }) {
               Certifications
             </a>
           </li>
-          <li>
-            <a href="journées-a-themes">3</a>
+          {/* <li>
+            <a href="">3</a>
           </li>
           <li>
             <UncontrolledDropdown setActiveFromChild>
@@ -107,7 +106,7 @@ export default function NavBar({ theme, toggleTheme }) {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          </li>
+          </li> */}
           <li className="litest">
             <a href="/contact">Contact</a>
           </li>
@@ -128,7 +127,6 @@ export default function NavBar({ theme, toggleTheme }) {
                 </Button>
               </>
             )}
-       
         </ul>
       </Nav>
       <ResponsiveNav state={navbarState} className={navbarState ? "show" : ""}>
@@ -152,7 +150,7 @@ export default function NavBar({ theme, toggleTheme }) {
               Certifications
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="journées-a-themes" onClick={() => setNavbarState(false)}>
               3
             </a>
@@ -187,7 +185,7 @@ export default function NavBar({ theme, toggleTheme }) {
                  6
                 </DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           <li>
             <a href="/contact" onClick={() => setNavbarState(false)}>
               Contact

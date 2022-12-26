@@ -1,7 +1,8 @@
-import React, { useEffect, createRef } from "react";
+import React, { useEffect, createRef, useCallback, useState } from "react";
 import styled from "styled-components";
 import { List, Container } from "reactstrap";
 import '../../styles/style.scss';
+import { renderMatches } from "react-router-dom";
 
 
 export default function Banner({ theme, toggleTheme }) {
@@ -15,21 +16,18 @@ export default function Banner({ theme, toggleTheme }) {
         document.body.appendChild(script);
 
         return () => {
-          document.body.removeChild(script);
-          
+            document.body.removeChild(script);
         };
+  
     }, []);
-
-    const showLinkedinBadge = () => {
-        return (<div className="badge-base LI-profile-badge" ref={ref} data-locale="fr_FR" data-size="large" data-theme='light' data-type="VERTICAL" data-vanity="antoine-heidet" data-version="v1"></div>)
-    }
+  
 
     return (
     <>
         <ContainerHome
             fluid="sm"
         >
-            {showLinkedinBadge()}
+            <div className="badge-base LI-profile-badge" ref={ref} data-locale="fr_FR" data-size="large" data-theme="light" data-type="VERTICAL" data-vanity="antoine-heidet" data-version="v1"></div>
             <List type="inline">
                 <li>
                     Passionné par ce secteur d’activité, je suis curieux et j'aime expérimenter, <br />
