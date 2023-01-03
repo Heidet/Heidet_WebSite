@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
-import { Button, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { Button } from 'reactstrap';
 import '../styles/style.scss';
 import AuthContext from "../context/AuthContext";
 
@@ -53,6 +53,11 @@ export default function NavBar({ theme, toggleTheme }) {
           <li>
             <a href="/certificats" onClick={() => setNavbarState(false)}>
               Certifications
+            </a>
+          </li>
+          <li>
+            <a href="/portail_administration" onClick={() => setNavbarState(false)}>
+              Portail Administration
             </a>
           </li>
           {/* <li>

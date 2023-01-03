@@ -1,11 +1,11 @@
 
 import React, { useEffect, useState } from "react";
-import { Card, Container, CardHeader, CardText, Button, CardFooter, CardBody, CardTitle } from 'reactstrap';
+import { Card, Container, CardText, Button, CardBody, CardTitle } from 'reactstrap';
 import styled from "styled-components";
 import axios from "axios";
 import Error404 from "../Errors/Error404";
 
-export default function Certifs({ theme, toggleTheme }){
+export default function Certifs(){
     const [certifications, setCertifications] = useState(null);
 
     useEffect(() => {    
@@ -46,7 +46,7 @@ export default function Certifs({ theme, toggleTheme }){
                                     <CardText>
                                         {certification.datefield}
                                     </CardText>
-                                    <a href={certification.urlcertif} target="_blank">
+                                    <a href={certification.urlcertif} rel="noreferrer" target="_blank">
                                         <Button color="info">
                                             Afficher l'identifiant 
                                         </Button>

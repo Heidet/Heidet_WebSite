@@ -44,7 +44,6 @@ const Span = styled.span`
 
 const Section = styled.footer`
   // margin: 0;
-  margin-top: 2em;
   background: linear-gradient(to right,#4969e1,#09173e);
   color: ${({ theme }) => theme.text};
   // display: grid;

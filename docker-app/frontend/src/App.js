@@ -21,6 +21,7 @@ export default function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
+    <>
       <ThemeProvider theme={themeMode}>
       <GlobalStyles />
         <Routes>
@@ -35,6 +36,7 @@ export default function App() {
           />
         </Routes>
       </ThemeProvider>
+    </>
   );
 }
 

@@ -1,8 +1,7 @@
-import React, { useEffect, createRef, useCallback, useState } from "react";
+import React, { useEffect, createRef } from "react";
 import styled from "styled-components";
 import { List, Container } from "reactstrap";
 import '../../styles/style.scss';
-import { renderMatches } from "react-router-dom";
 
 
 export default function Banner({ theme, toggleTheme }) {
@@ -72,6 +71,14 @@ const ContainerHome = styled(Container)`
     ul {
         padding-left: 2em;
     }
+
+    @media screen and (max-width: 768px) {
+        display: initial;
+        .badge-base {
+            text-align: center;
+            text-align: -webkit-center;
+        }
+	}
 `
 
 

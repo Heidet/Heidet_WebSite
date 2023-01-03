@@ -99,16 +99,26 @@ const IconStack = styled.div`
 `
 const StackContainerIcon = styled.div`
     display: flex;
-`
-
-const ContainerParent = styled(Container)`
-    display: flex;
-    padding-top: 5em;
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+	}
 `
 
 const ContainerStack = styled(Container)`
     padding-left: 3em; 
     align-self: center;
+    @media screen and (max-width: 768px) {
+        padding-left: inherit; 
+	}
+`
+
+const ContainerParent = styled(Container)`
+    display: flex;
+    padding-top: 5em;
+    padding-bottom: 3em;
+    @media screen and (max-width: 768px) {
+        display: initial;
+	}
 `
 
 

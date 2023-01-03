@@ -1,22 +1,15 @@
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import { Container, Row, Col, Card, CardBody, Button } from "reactstrap";
 import styled from "styled-components";
 
 
 
 export default function Login () {
-  console.log(AuthContext)
   const { loginUser } = useContext(AuthContext);
-  console.log(loginUser)
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(username)
-    // console.log(password)
     const username = e.target.username.value;
     const password = e.target.password.value;
-    console.log(username)
-    console.log(password)
     username.length > 0 && loginUser(username, password);
   };
 

@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Name } from "../../components/Contact/Contact";
-import NavBar from "../../components/NavBar";
 import { darkTheme, lightTheme } from '../../components/GlobalStyles/StylesReusable';
 import { useDarkMode } from '../../components/DarkMode';
+import { ThemeProvider } from 'styled-components';
+import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 
@@ -13,17 +14,16 @@ export default function Contact() {
 
     return (
     <>
-        <div>
-            <NavBar theme={themeMode}  toggleTheme={toggleTheme} />, 
+        <ThemeProvider theme={themeMode}>
+            <NavBar theme={themeMode}  toggleTheme={toggleTheme} />
             <ContactForm id="form-app">
                 <Name />
             </ContactForm>
             <Footer />
-        </div>
+        </ ThemeProvider>
     </>
   );
 }
-
 
 const ContactForm = styled.div`
     min-width: 280px;
@@ -33,7 +33,7 @@ const ContactForm = styled.div`
     border-radius: 8px;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     margin: 50px auto;
-    color: #384d4a;
+    color: ${({ theme }) => theme.text};
     font-family: 'Nunito', sans-serif;
     font-size: 0.8rem;
     h1 {
