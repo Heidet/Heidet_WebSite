@@ -110,8 +110,6 @@ const CardCertifs = styled(Card)`
         inherits: true;
         initial-value: 0turn;
     }   
-
-
 `
 
 

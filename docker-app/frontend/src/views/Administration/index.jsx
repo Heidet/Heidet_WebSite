@@ -5,6 +5,14 @@ import { darkTheme, lightTheme } from '../../components/GlobalStyles/StylesReusa
 import { useDarkMode } from '../../components/DarkMode';
 import Administration from "../../components/Administration/index";
 
+import {
+    BrowserRouter,
+    Route,
+    Router,
+    Routes,
+} from "react-router-dom";
+
+
 export default function AdministrationPanel() {
 	const [theme, toggleTheme] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;

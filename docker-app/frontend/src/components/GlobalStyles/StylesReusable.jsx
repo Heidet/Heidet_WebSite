@@ -83,7 +83,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   themeBootstrap : "bg-dark",
-  bg: "#1a202c",
+  bg: "#1E1E1E",
   text: "white",
   shadow: "#2e4e5c",
   dark: 'rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important',

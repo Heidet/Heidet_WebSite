@@ -30,7 +30,7 @@ ReactDOM.render(
         <Route element={<App />}  path="/" />
         <Route element={<Login />}  path="login" />
         <Route element={<Certificats />}  path="/certificats" />
-        <Route element={<AdministrationPanel />}  path="/portail_administration" />
+        <Route element={<AdministrationPanel />}  path="/portail_administration/dashboard" />
         <Route element={<Contact />}  path="/contact" />
         <Route path='/profile/github' element={<GitHub />} />
         <Route path='/error' element={<GithubError />} />
