@@ -26,15 +26,13 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'Certifications', views.CertifCardsView, 'certifications')
 router.register(r'Bannette', views.MessagesBannetteView, 'bannette')
-
-
+router.register(r'Users', views.UserList, 'user')
+router.register(r'todos', views.TodoView, 'todo')
 
     
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    # path('api/admin/', admin.site.urls),
-    # path('api/', include(router.urls)),
     path('api/login/', include("api.urls"))
 ]
 

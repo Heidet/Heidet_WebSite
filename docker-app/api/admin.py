@@ -7,7 +7,13 @@ class CertifCardsAdmin(admin.ModelAdmin):
 
 class MessagesBannetteAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'message')
+    
+    
 # Register your models here.
-
+class TodoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'completed')
+    
+    
+admin.site.register(Todo, TodoAdmin)
 admin.site.register(CertifCardsModel, CertifCardsAdmin)
 admin.site.register(MessagesBannetteModel, MessagesBannetteAdmin)

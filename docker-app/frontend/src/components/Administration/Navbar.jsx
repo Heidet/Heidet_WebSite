@@ -95,9 +95,7 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
       )}
       onClick={()=>{
         onClick(id);
-        console.log(title)
-        navigateToContent(id, title, notifications)
-        // navigate(`/portail_administration/${title}`)
+        navigate(`/portail_administration/${title}`)
       }
      }
     >
@@ -114,12 +112,6 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
   );
 }
 
-function navigateToContent (id, title, notifications){
-  if(title === "Overview"){
-    console.log(title)
-  }
-
-}
 
 export default function Sidebar({ theme, toggleTheme, onSidebarHide, showSidebar, Icon, IconButton, Image }) {
     const { user, logoutUser, authTokens } = useContext(AuthContext);

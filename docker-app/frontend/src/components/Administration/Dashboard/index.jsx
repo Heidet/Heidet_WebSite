@@ -1,10 +1,10 @@
 
 import React, {useState} from "react";
-import Sidebar from "./Navbar"
-import Content from "./Dashboard/Content"
+import Sidebar from "../Navbar"
+import Content from "./Content"
 import clsx from "https://cdn.skypack.dev/clsx@1.1.1";
-import { darkTheme, lightTheme } from '../../components/GlobalStyles/StylesReusable';
-import { useDarkMode } from '../../components/DarkMode';
+import { darkTheme, lightTheme } from '../../GlobalStyles/StylesReusable';
+import { useDarkMode } from '../../DarkMode';
 import { ThemeProvider } from 'styled-components';
 import {
   BrowserRouter,
@@ -58,13 +58,28 @@ export default function Administration () {
     return (
         <>
           <ThemeProvider theme={themeMode}>
-          <GlobalStyles />
             <Routes>
               <Route element={
                 [
-                  <NavBar theme={themeMode}  toggleTheme={toggleTheme} />, 
-                  <Home theme={themeMode}  toggleTheme={toggleTheme} />,
-                  <Footer />
+                  <Sidebar
+                    theme={themeMode}  toggleTheme={toggleTheme}
+                    onSidebarHide={() => {
+                      onSetShowSidebar(false);
+                    }}
+                    showSidebar={showSidebar}
+                    Icon={Icon}
+                    IconButton={IconButton}
+                    Image={Image}
+                  />,
+                  <Content
+                    theme={themeMode}  toggleTheme={toggleTheme}
+                    onSidebarHide={() => {
+                      onSetShowSidebar(true);
+                    }}
+                    Icon={Icon}
+                    IconButton={IconButton}
+                    Image={Image}
+                  />
                 ]
               } 
                 path="/" 
@@ -72,29 +87,6 @@ export default function Administration () {
             </Routes>
           </ThemeProvider>
         </>
-      // <div className="flex">
-      //   <ThemeProvider theme={themeMode}>
-      //     <Sidebar
-      //       theme={themeMode}  toggleTheme={toggleTheme}
-      //       onSidebarHide={() => {
-      //         onSetShowSidebar(false);
-      //       }}
-      //       showSidebar={showSidebar}
-      //       Icon={Icon}
-      //       IconButton={IconButton}
-      //       Image={Image}
-      //     />
-      //     <Content
-      //       theme={themeMode}  toggleTheme={toggleTheme}
-      //       onSidebarHide={() => {
-      //         onSetShowSidebar(true);
-      //       }}
-      //       Icon={Icon}
-      //       IconButton={IconButton}
-      //       Image={Image}
-      //     />
-      //   </ThemeProvider>
-      // </div>
     );
 }
 

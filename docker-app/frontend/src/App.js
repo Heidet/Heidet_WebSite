@@ -27,6 +27,7 @@ export default function App() {
         <Routes>
           <Route element={
             [
+              
               <NavBar theme={themeMode}  toggleTheme={toggleTheme} />, 
               <Home theme={themeMode}  toggleTheme={toggleTheme} />,
               <Footer />

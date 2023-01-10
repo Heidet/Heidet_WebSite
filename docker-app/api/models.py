@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+
 class CertifCardsModel(models.Model):
     title = models.CharField(max_length=120)
     identifiant = models.TextField()
@@ -13,7 +14,6 @@ class CertifCardsModel(models.Model):
     def _str_(self):
         return self.title
     
-    
 
 class MessagesBannetteModel(models.Model):
     name = models.CharField(max_length=120)
@@ -22,3 +22,12 @@ class MessagesBannetteModel(models.Model):
     
     def _str_(self):
         return self.message
+    
+
+class Todo(models.Model):
+    title = models.CharField(max_length=120)
+    description = models.TextField()
+    completed = models.BooleanField(default=False)
+
+    def _str_(self):
+        return self.title

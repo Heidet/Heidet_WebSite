@@ -7,8 +7,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-# Cr?erserializers
-# S?rialiseurs pour convertir les instances de mod?le en JSON afin que l'interface puisse fonctionner avec les donn?es re?ues.
+from django.contrib.auth import get_user_model
 
 
 class CertifCardsSerializers(serializers.ModelSerializer):
@@ -23,6 +22,16 @@ class MessageBannetteSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'email', 'message')
         
 
+class UserSerializer(serializers.ModelSerializer):
+    # snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'password', 'first_name', 'last_name', 'date_joined', 'is_active', 'is_superuser', 'email')
+
+class TodoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Todo
+        fields = ('id', 'title', 'description', 'completed')
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

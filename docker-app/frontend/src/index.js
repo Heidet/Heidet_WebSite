@@ -13,7 +13,13 @@ import moment from 'moment-timezone';
 import PageNotFound from "./views/Errors/Error404";
 import GitHub from "./components/GitHub/index";
 import GithubError from "./components/GitHub/GithubError";
-import AdministrationPanel from "./views/Administration/index";
+// import Administration from "./components/Administration/Dashboard/index";
+import Administration from ".//views/Administration/index";
+
+
+
+// import Administration from "./components/Administration/User/index";
+
 import "@tremor/react/dist/esm/tremor.css";
 import {
   Route,
@@ -30,7 +36,11 @@ ReactDOM.render(
         <Route element={<App />}  path="/" />
         <Route element={<Login />}  path="login" />
         <Route element={<Certificats />}  path="/certificats" />
-        <Route element={<AdministrationPanel />}  path="/portail_administration/dashboard" />
+        <Route element={<Administration />}  path="/portail_administration//*" />
+        {/* <Route element={<Administration />}  path="/portail_administration/Overview" /> */}
+        {/* <Route element={<Administration />}  path="/portail_administration/Overview" /> */}
+
+
         <Route element={<Contact />}  path="/contact" />
         <Route path='/profile/github' element={<GitHub />} />
         <Route path='/error' element={<GithubError />} />

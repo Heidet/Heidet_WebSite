@@ -24,6 +24,20 @@ class MessagesBannetteView(viewsets.ModelViewSet):
     queryset = MessagesBannetteModel.objects.all()
 
 
+class TodoView(viewsets.ModelViewSet):
+    serializer_class = TodoSerializer
+    queryset = Todo.objects.all()
+
+
+class UserList(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+# class UserDetail(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [

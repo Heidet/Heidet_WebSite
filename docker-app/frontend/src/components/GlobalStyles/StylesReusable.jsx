@@ -46,6 +46,8 @@ export const TitleStyles = css`
   }
 `;
 
+
+
 export const GlobalStyles = createGlobalStyle`
   *,
   *::after,
