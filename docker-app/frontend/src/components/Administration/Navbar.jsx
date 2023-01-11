@@ -95,7 +95,12 @@ function MenuItem({ item: { id, title, notifications }, onClick, selected }) {
       )}
       onClick={()=>{
         onClick(id);
-        navigate(`/portail_administration/${title}`)
+        if(title === "Dashboard"){
+          navigate(`/portail_administration/`)
+        }else {
+          navigate(`/portail_administration/${title}`)
+        }
+      
       }
      }
     >
@@ -135,7 +140,7 @@ export default function Sidebar({ theme, toggleTheme, onSidebarHide, showSidebar
           <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 sidebar-separator-top">
             <IconButton icon="res-react-dash-logo" className="w-10 h-10" />
             <div className="block sm:hidden xl:block ml-2 font-bold text-xl text-white">
-              <a href="/" style={{'text-decoration': 'none', 'color':'white' }} className="active">
+              <a href="/" style={{'textDecoration': 'none', 'color':'white' }} className="active">
                 Accueil
               </a>
             </div>

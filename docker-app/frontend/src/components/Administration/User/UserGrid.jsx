@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 import { useTheme, useFetch } from '../../../utils/hooks'
 import { FcApproval } from 'react-icons/fc';
+import { BiAddToQueue } from 'react-icons/bi';
 import Error404 from "../../../views/Errors/Error404";
 import axios from "axios";
 import { Loader } from '../../../styles/Atoms'
+
 
 import {
   DataGrid,
@@ -32,10 +34,17 @@ const GridStyled = styled(DataGrid)`
   color: ${({ theme }) => theme.text}!important;
 `
 
+const ButtonAddUser = styled.button`
+  display: flex;
+`
+
+
 
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
+
+      <ButtonAddUser onClick={() => console.log('toto')} style={{ color: '#1f97f4' }} ><BiAddToQueue color="#1f97f4" />Ajout Utilisateur</ButtonAddUser>
       <GridToolbarColumnsButton  />
       <GridToolbarFilterButton />
       <GridToolbarDensitySelector />
@@ -46,14 +55,6 @@ function CustomToolbar() {
 
 
 const columns = [
-  // {
-  //   field: "Detail",
-  //   headerName: "Detail",
-  //   width: 100,
-  //   renderCell: (params) => (
-  //     <Button outline color="primary"><Link to={`/projet/${params.row.name}`}>Detail</Link></Button>
-  //   )
-  // },
   { field: 'id', headerName: 'ID', width: 200,},
   { field: "is_superuser", 
     headerName: "Admin", 
@@ -82,6 +83,7 @@ export default function UserGrid() {
   const { theme } = useTheme()
   const [users, setUsers] = useState(null);
   var url = process.env.REACT_APP_BACKEND_API+'Users/'
+
   useEffect(() => {    
       refreshUsers();
   }, []);
@@ -90,18 +92,25 @@ export default function UserGrid() {
     url
   )
 
-  const refreshUsers = () => {
-    // var url = process.env.REACT_APP_BACKEND_API+'Users/'
-    axios.get(url)
+  const addUser = () => {
+    axios.post(url)
       .then((res) => {
-        console.log(res.data)
         setUsers(res.data);
         if (!users) return <Error404 />
       })
       .catch(console.error);
   };
 
-  // if (!users) return <Error404 />;
+
+  const refreshUsers = () => {
+    axios.get(url)
+      .then((res) => {
+        setUsers(res.data);
+        if (!users) return <Error404 />
+      })
+      .catch(console.error);
+  };
+
 
   if (error) {
     return <Error404 />

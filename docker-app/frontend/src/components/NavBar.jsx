@@ -56,7 +56,7 @@ export default function NavBar({ theme, toggleTheme }) {
             </a>
           </li>
           <li>
-            <a href="/portail_administration/dashboard" onClick={() => setNavbarState(false)}>
+            <a href="/portail_administration/" onClick={() => setNavbarState(false)}>
               Portail Administration
             </a>
           </li>

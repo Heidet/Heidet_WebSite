@@ -25,7 +25,7 @@ export default function AdministrationPanel() {
         <div>
             <ThemeProvider theme={themeMode}>
                 <Routes>
-                    <Route element={<Administration />}  path="/Dashboard" />,
+                    <Route element={<Administration />}  path="/" />,
                     <Route element={<User />}  path="/Team" />
                     <Route element={<Tasks />}  path="/Tasks" />
 

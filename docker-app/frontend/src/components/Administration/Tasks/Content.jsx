@@ -96,8 +96,8 @@ export default function Content({ theme, toggleTheme, onSidebarHide, Icon, IconB
             Icon={Icon}/>
           </div>
         </div> */}
-        <div className="w-full p-2 lg:w-1/3">
-          <div className="rounded-lg bg-card overflow-hidden h-80">
+        <div className="w-full p-2 lg:w-3/3" style={{ height: '80%', width: '100%' }}>
+          <div className="rounded-lg bg-card overflow-hidden ">
             <Todos 
               theme={theme} 
               toggleTheme={toggleTheme}

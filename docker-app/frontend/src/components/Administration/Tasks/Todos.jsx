@@ -1,12 +1,17 @@
-import React, { Component } from "react";
-import Modal from "../../Modal";
+import React, { Component, useEffect } from "react";
+import Modal from "./Modal";
 import axios from "axios";
+import styled from 'styled-components';
+import { Loader } from '../../../styles/Atoms'
+
 
 class Todos extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       viewCompleted: false,
+      theme : "",
       todoList: [],
       modal: false,
       theme: props.theme,
@@ -18,19 +23,18 @@ class Todos extends Component {
       },
     };
   }
- 
-  componentDidMount() {
 
+  componentDidMount() {
+    this.setState({isLoading: false})
     this.refreshList();
   }
 
   refreshList = () => {
-    console.log(this.props);
-
-    console.log(this.state);
     axios
-      .get("/api/todos/")
-      .then((res) => this.setState({ todoList: res.data }))
+      .get(process.env.REACT_APP_BACKEND_API+'todos/')
+      .then((res) => 
+        this.setState({ todoList: res.data }),
+        )
       .catch((err) => console.log(err));
   };
 
@@ -43,30 +47,32 @@ class Todos extends Component {
 
     if (item.id) {
       axios
-        .put(`/api/todos/${item.id}/`, item)
+        .put(process.env.REACT_APP_BACKEND_API+`todos/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("/api/todos/", item)
+      .post(process.env.REACT_APP_BACKEND_API+`todos/`, item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-      .delete(`/api/todos/${item.id}/`)
+      .delete(process.env.REACT_APP_BACKEND_API+`todos/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
+
   createItem = () => {
     const item = { title: "", description: "", completed: false };
-
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
+
 
   editItem = (item) => {
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
+
 
   displayCompleted = (status) => {
     if (status) {
@@ -133,12 +139,14 @@ class Todos extends Component {
   };
 
   render() {
-    return (
-      <main className="container">
-        <h1 className="text-white text-uppercase text-center my-4">Tâches</h1>
-        <div className="row">
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
+    return this.state.isLoading ? (
+      <LoaderWrapper>
+        <Loader data-testid="loader" />
+      </LoaderWrapper>
+    ) : (
+      <div className="container" style={{ height: '50em', width: '100%' }}>
+        <h1 className="text-white text-uppercase text-center my-4" style={{ color: this.props.theme.text}}>Tâches</h1>
+            <PanelTasks>
               <div className="mb-4">
                 <button
                   className="btn btn-primary"
@@ -151,9 +159,7 @@ class Todos extends Component {
               <ul className="list-group list-group-flush border-top-0">
                 {this.renderItems()}
               </ul>
-            </div>
-          </div>
-        </div>
+            </PanelTasks>
         {this.state.modal ? (
           <Modal
             activeItem={this.state.activeItem}
@@ -161,9 +167,21 @@ class Todos extends Component {
             onSave={this.handleSubmit}
           />
         ) : null}
-      </main>
+      </div>
     );
   }
 }
 
 export default Todos;
+
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const PanelTasks = styled.div`
+  background-color: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.text}
+  padding: 1em;
+`
+

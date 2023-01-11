@@ -23,15 +23,16 @@ class MessageBannetteSerializer(serializers.ModelSerializer):
         
 
 class UserSerializer(serializers.ModelSerializer):
-    # snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'first_name', 'last_name', 'date_joined', 'is_active', 'is_superuser', 'email')
+
 
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
         fields = ('id', 'title', 'description', 'completed')
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -42,6 +43,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         # ...
         return token
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
